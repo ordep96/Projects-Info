@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Projects Info
+    link(rel="stylesheet", href="css/estilos.css")
+  body
+    main.wrapper
+      .content-img
+        .list-img
+          - for(var i=1;i<=4;i++)
+            if i === 1
+              .list-img__item.item-selected
+                h2.title Project #{i}
+            else
+              .list-img__item
+                h2.title Project #{i}
+      .content-description
+        .list-description
+          - for(var i=1;i<=4;i++)
+              if i === 1
+                .list-description__item.item-selected
+                  h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit2.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+              else
+                .list-description__item
+                  h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+                  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cum quisquam, libero molestiae cupiditate, omnis? Provident excepturi, nobis cupiditate, nulla dolorem dignissimos error necessitatibus, sint praesentium dolores, harum! Aliquam sequi impedit corrupti, numquam maiores ipsa commodi excepturi eligendi cupiditate adipisci atque sint iste aspernatur, hic sed modi at voluptatum nihil incidunt, fugiat repellendus beatae debitis, soluta blanditiis culpa! Magnam quisquam tempore exercitationem molestias cupiditate quam aut eum perferendis deleniti doloribus et quos dolore excepturi, rem incidunt consectetur quia accusantium placeat quae officiis in ab. Veniam sapiente aut est asperiores nihil reprehenderit incidunt cupiditate, voluptatibus nemo iste. Quos, ullam. Cupiditate, sed.
+      .botonera
+        button.botonera__button.prev.disabled
+          span.fa.fa-chevron-left
+          | Prev
+        button.botonera__button.next
+          span.fa.fa-chevron-right
+          | Next
+
+      .author
+        button.close-author
+          span.fa.fa-times
+        p.author__name Projects with info
+          span by Pedro Muñoz
+        ul.author__sociales
+          li: a(href="#").twitter
+            span.fa.fa-twitter
+          li: a(href="#").instagram
+            span.fa.fa-instagram
+          li: a(href="#").github
+            span.fa.fa-github
+          li: a(href="#").codepen
+            span.fa.fa-codepen
+
+  script(src="https://use.fontawesome.com/d1ed67737b.js")
+  script(src="js/app.js")

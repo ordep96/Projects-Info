@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+:root{
+  --colorLetra:#343642;
+  --color1:#005343;
+  --color2:#002A3D;
+  --color3:#733435;
+  --color4:#AECCDB;
+  --twitter:#1da1f2;
+  --instagram:#c32aa3;
+  --github:#282D32;
+  --codepen:#14171a;
+  --openSans:'Open Sans', sans-serif;
+}
+
+
+*,*::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+/* Media Querie */
+@custom-media --MDQ screen and (width <= 768px);
+/* Media Querie */
+
+body{
+  font-family:var(--openSans);
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.wrapper{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  @media (--MDQ){
+    grid-template-columns:1fr;
+
+    height:100vh;
+  }
+}
+
+.content-img, .content-description{
+  overflow:hidden;
+  height:100vh;
+  @media (--MDQ){
+    height:auto;
+    overflow-x:none;
+    overflow-y:auto;
+  }
+}
+
+.list-img{
+  position:relative;
+  height:100%;
+
+  &__item{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    transform:translateX(100%);
+    will-change:transform;
+    transition:transform .8s;
+
+
+    @media (--MDQ){
+      height:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      &:hover{
+        cursor:pointer;
+      }
+    }
+
+    .title{
+      position:relative;
+      color:#fff;
+      font-size:2.5em;
+      padding:1.1em;
+      pointer-events:none;
+    }
+
+
+
+
+     @for $i from 1 to 4{
+        &:nth-of-type($i){
+          background:url('../img/img-project-$(i).jpg');
+          background-repeat:no-repeat;
+          background-position:center center;
+          background-size:cover;
+          &::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:color(var(--color$(i)) a(85%));
+          }
+        }
+    }
+
+
+
+  }
+
+}
+
+.content-description{
+  position:relative;
+  height:100%;
+
+  @media (--MDQ){
+    position:relative;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    transform:translateX(0);
+    transition:transform .5s;
+
+    &.is-active{
+      transform:translateX(0);
+    }
+
+  }
+
+
+  .btn-close{
+    position:absolute;
+    top:0;
+    z-index:1;
+    width:40px;
+    height:40px;
+    background:color(#000 lightness(15%));
+    box-shadow:0 0 6px rgba(0,0,0,.5);
+    border:none;
+    border-radius:50%;
+    color:#fff;
+    font-size:1.2em;
+    right:20px;
+    top:10px;
+    display:none;
+    &:focus{
+      outline:none;
+    }
+
+    @media (--MDQ){
+       display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+  }
+
+  .list-description{
+    position:relative;
+    width:100%;
+    height:100%;
+
+    &__item{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:#fff;
+      padding:2em;
+      overflow:auto;
+      transform:translateX(100%);
+      will-change:transform;
+      transition:transform .8s;
+
+      @media (--MDQ){
+        height:100%;
+      }
+
+      h2{
+        color:var(--colorLetra);
+        font-size:2em;
+
+        @media (--MDQ){
+          font-size:1.3em;
+        }
+
+      }
+
+      p{
+        font-size:.95em;
+        margin-top:40px;
+        font-weight:400;
+        color:color(#000 a(50%));
+      }
+
+
+
+    }
+
+  }
+
+}
+
+
+.botonera{
+  background:color(#000 a(50%));
+  width:50%;
+  position:absolute;
+  left:0;
+  bottom:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  @media (--MDQ){
+    position:fixed;
+    width:100%;
+     background:color(#000 a(60%));
+  }
+
+  &__button{
+    display:block;
+    width:100%;
+    border:none;
+    background:none;
+    color:#fff;
+    text-align:center;
+    padding:1.5em;
+    transition:.3s all;
+    position:relative;
+
+    span{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+    }
+
+    &:hover{
+      cursor:pointer;
+      background:color(#000 a(60%));
+    }
+
+    &:focus{
+      outline:none;
+    }
+  }
+
+  .prev span{
+    left:100px;
+    @media (--MDQ){
+      left:50px;
+    }
+  }
+
+  .next span{
+    right:100px;
+    @media (--MDQ){
+      right:50px;
+    }
+  }
+
+}
+
+
+.author{
+  position:fixed;
+  width:200px;
+  background:#fefefe;
+  padding:1.2em;
+  text-align:center;
+  right:40px;
+  top:35px;
+  box-shadow:0 0 30px rgba(0,0,0,.2);
+  border-radius:2px;
+  transform:translate3d(0,0,0);
+  transition:transform .4s ;
+
+  &.close{
+    transform:translate3d(0,-150%,0);
+  }
+
+  @media (--MDQ){
+    display:none;
+  }
+
+  .close-author{
+    position:absolute;
+    left:-25px;
+    top:2px;
+    display:block;
+    border:none;
+    color:#fff;
+    width:25px;
+    height:30px;
+    border-radius:4px 0 0 4px;
+    background:color(#000 a(90%));
+    &:hover{
+      cursor:pointer;
+    }
+    &:active, &:focus{
+      outline:none;
+    }
+  }
+
+  &__name{
+    text-transform:uppercase;
+    line-height:1.3em;
+    font-weight:500;
+    span{
+      display:block;
+      font-size:.80em;
+      font-weight:300;
+    }
+  }
+
+  &__sociales{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+    li{
+      margin:5px;
+      a{
+        display:block;
+        width:30px;
+        height:30px;
+        background:red;
+        border-radius:50%;
+        color:#fff;
+        text-decoration:none;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+          &.twitter{
+            background:var(--twitter);
+         }
+
+         &.instagram{
+           background:var(--instagram);
+         }
+
+         &.github{
+           background:var(--github);
+         }
+
+         &.codepen{
+           background:var(--codepen);
+         }
+      }
+    }
+  }
+
+}
+
+
+
+.item-selected{
+  transform:translateX(0) !important;
+
+}
+
+.disabled{
+  opacity:.4;
+  &:hover{
+     cursor:not-allowed;
+  }
+
+}
+
+.overflow-hidden{
+  overflow:hidden !important;
+}
+
+.move{
+  transform:translateX(-100%) !important;
+  @media (--MDQ){
+    transform:translateX(0) !important;
+  }
+}
+
+
+
+
